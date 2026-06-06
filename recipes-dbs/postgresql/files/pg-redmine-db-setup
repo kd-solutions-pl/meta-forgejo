@@ -1,0 +1,41 @@
+#!/bin/sh
+set -eu
+
+usage() {
+    echo "Usage: pg-redmine-db-setup PASSWORD" >&2
+    echo "       pg-redmine-db-setup --password PASSWORD" >&2
+}
+
+if [ "$#" -eq 1 ]; then
+    PASSWORD="$1"
+elif [ "$#" -eq 2 ] && [ "$1" = "--password" ]; then
+    PASSWORD="$2"
+else
+    usage
+    exit 2
+fi
+
+if [ -z "${PASSWORD}" ]; then
+    echo "Password must not be empty" >&2
+    exit 2
+fi
+
+sql_quote() {
+    printf '%s' "$1" | sed "s/'/''/g"
+}
+
+run_psql() {
+    su postgres -c 'psql -v ON_ERROR_STOP=1 --no-align --tuples-only postgres'
+}
+
+PASSWORD_SQL="$(sql_quote "${PASSWORD}")"
+
+if [ "$(printf "SELECT 1 FROM pg_roles WHERE rolname = 'redmine';\n" | run_psql)" != "1" ]; then
+    printf "CREATE ROLE redmine LOGIN ENCRYPTED PASSWORD '%s' NOINHERIT VALID UNTIL 'infinity';\n" "${PASSWORD_SQL}" | run_psql >/dev/null
+else
+    printf "ALTER ROLE redmine WITH LOGIN ENCRYPTED PASSWORD '%s' NOINHERIT VALID UNTIL 'infinity';\n" "${PASSWORD_SQL}" | run_psql >/dev/null
+fi
+
+if [ "$(printf "SELECT 1 FROM pg_database WHERE datname = 'redmine';\n" | run_psql)" != "1" ]; then
+    printf "CREATE DATABASE redmine WITH ENCODING='UTF8' OWNER=redmine;\n" | run_psql >/dev/null
+fi

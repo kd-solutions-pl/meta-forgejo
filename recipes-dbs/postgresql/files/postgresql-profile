@@ -1,0 +1,4 @@
+[ -f /etc/profile ] && source /etc/profile
+
+PGDATA=/data/postgresql/data
+export PGDATA
