@@ -1,0 +1,25 @@
+[Unit]
+Description=Forgejo
+After=network.target forgejo-storage-prepare.service forgejo-postgresql-setup.service
+Requires=forgejo-storage-prepare.service forgejo-postgresql-setup.service
+RequiresMountsFor=/data
+ConditionPathExists=/data/forgejo/ssl/forgejo.crt
+ConditionPathExists=/data/forgejo/ssl/forgejo.key
+ConditionPathExists=/data/forgejo/db_passwd
+
+[Service]
+Type=simple
+User=forgejo
+Group=forgejo
+WorkingDirectory=/data/forgejo
+Environment=USER=forgejo
+Environment=HOME=/data/forgejo
+Environment=FORGEJO_WORK_DIR=/data/forgejo
+ExecStartPre=/usr/bin/forgejo-runtime-check
+ExecStart=/usr/bin/forgejo web --config /etc/forgejo/app.ini
+Restart=always
+RestartPreventExitStatus=78
+RestartSec=2s
+
+[Install]
+WantedBy=multi-user.target

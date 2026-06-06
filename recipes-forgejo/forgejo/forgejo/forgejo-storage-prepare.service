@@ -1,0 +1,20 @@
+[Unit]
+Description=Prepare Forgejo writable storage
+RequiresMountsFor=/data
+Before=forgejo.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/forgejo-storage-prepare
+RemainAfterExit=yes
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/data
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+
+[Install]
+WantedBy=multi-user.target

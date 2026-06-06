@@ -1,0 +1,13 @@
+[Unit]
+Description=Prepare Forgejo PostgreSQL database
+Requires=postgresql.service forgejo-storage-prepare.service
+After=postgresql.service forgejo-storage-prepare.service
+Before=forgejo.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/forgejo-postgresql-setup
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

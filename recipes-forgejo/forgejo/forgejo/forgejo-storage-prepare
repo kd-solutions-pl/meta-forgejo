@@ -1,0 +1,54 @@
+#!/bin/sh
+set -eu
+
+if ! grep -q ' /data ' /proc/mounts; then
+    echo "/data is not mounted; Forgejo writable storage is unavailable" >&2
+    exit 1
+fi
+
+mkdir -p \
+    /data/forgejo \
+    /data/forgejo/config \
+    /data/forgejo/data \
+    /data/forgejo/log \
+    /data/forgejo/repositories \
+    /data/forgejo/ssl
+
+chown forgejo:forgejo \
+    /data/forgejo \
+    /data/forgejo/config \
+    /data/forgejo/data \
+    /data/forgejo/log \
+    /data/forgejo/repositories \
+    /data/forgejo/ssl
+
+chmod 0750 \
+    /data/forgejo \
+    /data/forgejo/config \
+    /data/forgejo/data \
+    /data/forgejo/log \
+    /data/forgejo/repositories \
+    /data/forgejo/ssl
+
+if [ ! -s /data/forgejo/config/app.ini ]; then
+    cp /usr/share/forgejo/defaults/app.ini /data/forgejo/config/app.ini
+fi
+
+chown forgejo:forgejo /data/forgejo/config/app.ini
+chmod 0640 /data/forgejo/config/app.ini
+
+if [ ! -s /data/forgejo/jwt_secret ]; then
+    umask 077
+    /usr/bin/forgejo generate secret JWT_SECRET > /data/forgejo/jwt_secret
+fi
+
+chown forgejo:forgejo /data/forgejo/jwt_secret
+chmod 0600 /data/forgejo/jwt_secret
+
+if [ ! -s /data/forgejo/db_passwd ]; then
+    umask 077
+    /usr/bin/forgejo generate secret INTERNAL_TOKEN > /data/forgejo/db_passwd
+fi
+
+chown forgejo:forgejo /data/forgejo/db_passwd
+chmod 0600 /data/forgejo/db_passwd

@@ -1,0 +1,39 @@
+From b7e58307db37ca2578b2f9fd3617b32639d922bf Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Krzysztof=20Drobi=C5=84ski?= <krzysztof@kd-solutions.pl>
+Date: Mon, 8 Jun 2026 17:12:52 +0200
+Subject: [PATCH] Fix passing GOFLAGS from Yocto environment
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+OpenEmbedded's go-mod class adds -modcacherw to Go build flags so the
+module cache remains writable and later clean/unpack tasks can remove it.
+
+The Forgejo Makefile unconditionally assigns GOFLAGS, overriding recipe
+exports. Make GOFLAGS overridable so distributions can provide required
+Go flags through the build environment while preserving the default value
+for normal upstream builds.
+
+Upstream-Status: Pending [Yocto-specific build flags]
+
+Signed-off-by: Krzysztof Drobiński <krzysztof@kd-solutions.pl>
+---
+ src/forgejo.org/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/forgejo.org/Makefile b/forgejo.org/Makefile
+index d1a1e90dec..de42b3c42a 100644
+--- a/src/forgejo.org/Makefile
++++ b/src/forgejo.org/Makefile
+@@ -58,7 +58,7 @@ ifeq ($(HAS_GO), yes)
+ 	CGO_CFLAGS ?= $(shell $(GO) env CGO_CFLAGS) $(CGO_EXTRA_CFLAGS)
+ endif
+ 
+-GOFLAGS := -v
++GOFLAGS ?= -v
+ EXECUTABLE ?= gitea
+ 
+ ifeq ($(shell sed --version 2>/dev/null | grep -q GNU && echo gnu),gnu)
+-- 
+2.53.0
+

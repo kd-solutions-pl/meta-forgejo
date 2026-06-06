@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+if [ ! -s /data/forgejo/db_passwd ]; then
+    echo "Missing Forgejo database password file: /data/forgejo/db_passwd" >&2
+    exit 1
+fi
+
+/usr/bin/pg-forgejo-db-setup --password "$(cat /data/forgejo/db_passwd)"

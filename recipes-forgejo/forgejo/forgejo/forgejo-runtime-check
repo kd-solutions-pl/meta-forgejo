@@ -1,0 +1,23 @@
+#!/bin/sh
+set -eu
+
+EX_CONFIG=78
+
+check_readable_file() {
+    path="$1"
+    description="$2"
+
+    if [ ! -s "${path}" ]; then
+        echo "Missing or empty ${description}: ${path}" >&2
+        exit "${EX_CONFIG}"
+    fi
+
+    if [ ! -r "${path}" ]; then
+        echo "Unreadable ${description}: ${path}" >&2
+        exit "${EX_CONFIG}"
+    fi
+}
+
+check_readable_file /data/forgejo/ssl/forgejo.crt "Forgejo SSL certificate"
+check_readable_file /data/forgejo/ssl/forgejo.key "Forgejo SSL private key"
+check_readable_file /data/forgejo/db_passwd "Forgejo database password"
