@@ -29,6 +29,7 @@ SRC_URI = "https://ftp.postgresql.org/pub/source/v${PV}/${BP}.tar.bz2 \
     file://postgresql.pam \
     file://postgresql-setup \
     file://pg-redmine-db-setup \
+    file://pg-forgejo-db-setup \
     file://postgresql.service \
     file://run-ptest \
 "
@@ -256,6 +257,7 @@ do_install:append() {
     sed -i -e "s/^PGVERSION=.*$/PGVERSION=${PV}/g" ${D}${sysconfdir}/init.d/${BPN}-server
     install -m 0755 ${UNPACKDIR}/${BPN}-setup ${D}${bindir}/${BPN}-setup
     install -m 0755 ${UNPACKDIR}/pg-redmine-db-setup ${D}${bindir}/pg-redmine-db-setup
+    install -m 0755 ${UNPACKDIR}/pg-forgejo-db-setup ${D}${bindir}/pg-forgejo-db-setup
     # multiple server config directory
     install -d -m 700 ${D}${sysconfdir}/default/${BPN}
 
@@ -311,6 +313,7 @@ RPROVIDES:${PN}-dbg += "libecpg-compat-dbg \
 FILES:${PN} += "${sysconfdir}/init.d/${BPN}-server \
     ${sysconfdir}/default/${BPN} \
     ${bindir}/pg-redmine-db-setup \
+    ${bindir}/pg-forgejo-db-setup \
     ${libdir}/${BPN}/dict_snowball.so ${libdir}/${BPN}/plpgsql.so \
     ${libdir}/${BPN}/euc2004_sjis2004.so \
     ${libdir}/${BPN}/libpqwalreceiver.so \
