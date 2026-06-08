@@ -28,7 +28,7 @@ RDEPENDS:${PN} += "bash git openssh coreutils postgresql git-lfs"
 inherit go-mod pkgconfig systemd useradd
 
 USERADD_PACKAGES = "${PN}"
-USERADD_PARAM:${PN} = "-r --user-group -u 2001 -d /data/forgejo --no-create-home --shell /usr/sbin/nologin forgejo"
+USERADD_PARAM:${PN} = "-r --user-group -u 2001 -d /data/forgejo --no-create-home --shell /bin/sh forgejo"
 SYSTEMD_SERVICE:${PN} = "forgejo-storage-prepare.service forgejo-postgresql-setup.service forgejo.service"
 
 FORGEJO_TAGS ?= "bindata timetzdata sqlite sqlite_unlock_notify"
