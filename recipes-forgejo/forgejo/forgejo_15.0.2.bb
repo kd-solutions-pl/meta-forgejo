@@ -82,10 +82,8 @@ do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${B}/src/${GO_IMPORT}/gitea ${D}${bindir}/forgejo
 
-    install -d ${D}${sysconfdir}/forgejo
     install -d ${D}${datadir}/forgejo/defaults
     install -m 0644 ${UNPACKDIR}/app.ini ${D}${datadir}/forgejo/defaults/app.ini
-    ln -snf /data/forgejo/config/app.ini ${D}${sysconfdir}/forgejo/app.ini
 
     install -m 0755 ${UNPACKDIR}/forgejo-storage-prepare ${D}${bindir}/forgejo-storage-prepare
     install -m 0755 ${UNPACKDIR}/forgejo-runtime-check ${D}${bindir}/forgejo-runtime-check
@@ -98,7 +96,6 @@ do_install() {
 }
 
 FILES:${PN} += " \
-    ${sysconfdir}/forgejo/app.ini \
     ${datadir}/forgejo/defaults/app.ini \
     ${bindir}/forgejo-storage-prepare \
     ${bindir}/forgejo-runtime-check \

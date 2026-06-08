@@ -16,7 +16,7 @@ Environment=USER=forgejo
 Environment=HOME=/data/forgejo
 Environment=FORGEJO_WORK_DIR=/data/forgejo
 ExecStartPre=/usr/bin/forgejo-runtime-check
-ExecStart=/usr/bin/forgejo web --config /etc/forgejo/app.ini
+ExecStart=/usr/bin/forgejo web --config /data/forgejo/config/app.ini
 Restart=always
 RestartPreventExitStatus=78
 RestartSec=2s
