@@ -31,9 +31,6 @@ USERADD_PACKAGES = "${PN}"
 USERADD_PARAM:${PN} = "-r --user-group -u 2001 -d /data/forgejo --no-create-home --shell /bin/sh forgejo"
 SYSTEMD_SERVICE:${PN} = "forgejo-storage-prepare.service forgejo-postgresql-setup.service forgejo.service"
 
-FORGEJO_TAGS ?= "bindata timetzdata sqlite sqlite_unlock_notify"
-FORGEJO_VERSION_API ?= "${PV}"
-
 export GO111MODULE = "on"
 
 do_configure:append() {
@@ -43,39 +40,11 @@ do_configure:append() {
 do_compile[network] = "1"
 
 do_compile() {
-    export TMPDIR="${GOTMPDIR}"
-    export GOCACHE="${B}/.cache"
-    export GOPATH="${B}"
-    export GOMODCACHE="${GOMODCACHE}"
-    export PATH="${RECIPE_SYSROOT_NATIVE}${bindir_native}:${PATH}"
-    export GO="${GO}"
-    export GODEBUG=""
-    export GOTOOLCHAIN="local"
     export GOFLAGS="-v -modcacherw"
     export EXTRA_GOFLAGS="${GO_PARALLEL_BUILD} -trimpath -buildmode=pie"
     export LDFLAGS=""
-    export TAGS="${FORGEJO_TAGS}"
-    export FORGEJO_VERSION="${PV}"
-    export RELEASE_VERSION="${PV}"
-    export VERSION="${PV}"
-    export FORGEJO_VERSION_API="${FORGEJO_VERSION_API}"
-    export EXECUTABLE="gitea"
-
-    oe_runmake frontend
-
-    export GO="${RECIPE_SYSROOT_NATIVE}${bindir_native}/go"
-    export GOOS="${BUILD_GOOS}"
-    export GOARCH="${BUILD_GOARCH}"
-    export GOTOOLDIR="${RECIPE_SYSROOT_NATIVE}${libdir_native}/go/pkg/tool/${BUILD_GOTUPLE}"
-    export CGO_ENABLED="0"
-    oe_runmake generate-backend
-
-    export GO="${GO}"
-    export GOOS="${TARGET_GOOS}"
-    export GOARCH="${TARGET_GOARCH}"
-    export GOTOOLDIR="${GOTOOLDIR}"
-    export CGO_ENABLED="${CGO_ENABLED}"
-    oe_runmake ${EXECUTABLE}
+    export GOTOOLCHAIN="local"
+    oe_runmake TAGS="bindata timetzdata" build
 }
 
 do_install() {
