@@ -16,7 +16,7 @@ SRC_URI = " \
     file://0001-Fix-passing-GOFLAGS-from-Yocto-environment.patch \
     file://npm-shrinkwrap.json \
 "
-SRCREV = "4e40eede0352619b8ddb3070ed3005c1eb88bfcb"
+SRCREV = "f6d4219f10a29dd6d59dfb5d8e44b7ff7aed4274"
 
 GO_IMPORT = "forgejo.org"
 
