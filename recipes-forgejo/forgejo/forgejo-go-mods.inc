@@ -35,9 +35,6 @@ SRC_URI += "\
     gomod://code.forgejo.org/go-chi/session;version=v1.0.3;sha256sum=3452dfec222011596d41d11438771f41fb804422811b7acd444797863bb942f5 \
     gomod://code.forgejo.org/xorm/xorm;version=v1.3.9-forgejo.11;sha256sum=03c82910ad45feb4374833390a5e9792be10c87ad5238f40f3fd75f25b4878c8 \
     gomod://code.gitea.io/sdk/gitea;version=v0.21.0;sha256sum=4b825da4e1883d97cdade2230981ccada7f4191662d3b201cef3ea5477bdcdfc \
-    gomod://code.superseriousbusiness.org/exif-terminator;version=v0.11.1;sha256sum=d5b314dc33c3fa31c45231d289bb06a4143ffc00da4ba2a8c8d6e7918f833c90 \
-    gomod://code.superseriousbusiness.org/go-jpeg-image-structure/v2;version=v2.3.0;sha256sum=314c5dbe8bb70d71e3d70a44a4b4d238a9b19892d1e3818971625e82c7944622 \
-    gomod://code.superseriousbusiness.org/go-png-image-structure/v2;version=v2.3.0;sha256sum=5191070b842e8d22390922892f464a18d760c51cc7a4fcc2b65a51adc55a837e \
     gomod://codeberg.org/gusted/mcaptcha;version=v0.0.0-20220723083913-4f3072e1d570;sha256sum=2013ee200834372a3518445507013e3579c52a692a3da79d8398fce1dc980b08 \
     gomod://connectrpc.com/connect;version=v1.19.2;sha256sum=a7d77ba5845fd757ae95e537b7d0cbf4b229cb20fe1721a79b7aa03348498bfe \
     gomod://dmitri.shuralyov.com/gpu/mtl;version=v0.0.0-20190408044501-666a987793e9;mod=1;sha256sum=fac4c5d8f682f9ec97721b2fc9fd53062ab170b2d2b7fab8ffc10ae183a1951e \
@@ -124,23 +121,6 @@ SRC_URI += "\
     gomod://github.com/dlclark/regexp2;version=v1.7.0;mod=1;sha256sum=7017e81fb9fa9227a3180a62e323158b4523c67062f0a8aa08637c092b8d4aa7 \
     gomod://github.com/dsnet/compress;version=v0.0.2-0.20230904184137-39efe44ab707;sha256sum=bc6111029c5b2a663b69e6d622d1082ccaf114b31162ea046681c2e4b689ee43 \
     gomod://github.com/dsnet/golib;version=v0.0.0-20171103203638-1ea166775780;mod=1;sha256sum=3b5266f69965a715f27de5d5e34da0ff809eb54a2ae6d7f5453d064d5a3dd5df \
-    gomod://github.com/dsoprea/go-exif/v2;version=v2.0.0-20200321225314-640175a69fe4;mod=1;sha256sum=43a24655812b9b9309b217b003132607a4a341972d5c79cd1051977d4a0a1593 \
-    gomod://github.com/dsoprea/go-exif/v3;version=v3.0.0-20200717053412-08f1b6708903;mod=1;sha256sum=1f97fd0387ff94e73331157e98d7ff7fae69a93755bf4ca2c1852470328752dd \
-    gomod://github.com/dsoprea/go-exif/v3;version=v3.0.0-20210428042052-dca55bf8ca15;mod=1;sha256sum=baddd845ee9520440ce5dbf9829ee3f978ca59a8b63eec4098f9ec57bcda59ea \
-    gomod://github.com/dsoprea/go-exif/v3;version=v3.0.0-20210625224831-a6301f85c82b;mod=1;sha256sum=baddd845ee9520440ce5dbf9829ee3f978ca59a8b63eec4098f9ec57bcda59ea \
-    gomod://github.com/dsoprea/go-exif/v3;version=v3.0.0-20221003160559-cf5cd88aa559;mod=1;sha256sum=46607e9a6ba90bd481e2d4d4827a0f76fb4d45bcffd59fd630db89daac12bca2 \
-    gomod://github.com/dsoprea/go-exif/v3;version=v3.0.0-20221003171958-de6cb6e380a8;mod=1;sha256sum=0e4b461a42475cb7eecb3a66c7829c16c11767b2ffb27d0a78db92f6cbefd455 \
-    gomod://github.com/dsoprea/go-exif/v3;version=v3.0.1;sha256sum=a9fa9043d8aaa982aa5f289c19f4d7601e37261cecf195b5fce6e54badffd161 \
-    gomod://github.com/dsoprea/go-iptc;version=v0.0.0-20200609062250-162ae6b44feb;sha256sum=150e85a414225acb5bf18ccbf6379b69ce91fec1eef2a221d0cade9f3a948108 \
-    gomod://github.com/dsoprea/go-logging;version=v0.0.0-20190624164917-c4f10aab7696;mod=1;sha256sum=ece27102013635488336a21b8025fa4d3d04307e443847209f78dc721ae7210c \
-    gomod://github.com/dsoprea/go-logging;version=v0.0.0-20200517223158-a10564966e9d;mod=1;sha256sum=87aa72fa39ffd85db4ac25edf5fb371c0fefedc1aca6ca98d93057807dc300b5 \
-    gomod://github.com/dsoprea/go-logging;version=v0.0.0-20200710184922-b02d349568dd;sha256sum=e6e73dfd34d25a5ebbbf44bb249864aa3c3fa846faae64a1629e8cca528aba93 \
-    gomod://github.com/dsoprea/go-photoshop-info-format;version=v0.0.0-20200609050348-3db9b63b202c;sha256sum=50f8ac6d9e23e3fa0730f5ea973c5e1c2c866bf8e00246d7af639af6c0fa7793 \
-    gomod://github.com/dsoprea/go-utility;version=v0.0.0-20200711062821-fab8125e9bdf;mod=1;sha256sum=9f10a170495f177cd467b3d2b69084b8a0d6dbf115c7874b24af6e82c2dd4fb4 \
-    gomod://github.com/dsoprea/go-utility/v2;version=v2.0.0-20200717064901-2fccff4aa15e;mod=1;sha256sum=ddfd3ed62eb8e485c59dc9acc35955521633b9f81bb49eb3ae09fcffa5b1ff39 \
-    gomod://github.com/dsoprea/go-utility/v2;version=v2.0.0-20221003142440-7a1927d49d9d;mod=1;sha256sum=20e136928f9b4de6e17f20b5212e629589506dcf05dfadcc857de78146fed7e6 \
-    gomod://github.com/dsoprea/go-utility/v2;version=v2.0.0-20221003160719-7bc88537c05e;mod=1;sha256sum=4b72d3687336bd4390c783c13794cd7b3427572d8a5d01a9128d271cdce399ee \
-    gomod://github.com/dsoprea/go-utility/v2;version=v2.0.0-20221003172846-a3e1774ef349;sha256sum=806d46916264803991e6a035b3ec699a96c97b38ab7e461705de678e6a07405a \
     gomod://github.com/dustin/go-humanize;version=v1.0.1;sha256sum=319404ea84c8a4e2d3d83f30988b006e7dd04976de3e1a1a90484ad94679fa46 \
     gomod://github.com/editorconfig/editorconfig-core-go/v2;version=v2.6.4;sha256sum=04b3446fd5ab943060f66509d6765dd8121b49d67b3adc66ed907f1ec97a69f0 \
     gomod://github.com/emersion/go-imap;version=v1.2.1;sha256sum=b9b66e741a6dbbf587ca6f8e618a66b17650788fa94ee400cfacc60c348fc49a \
@@ -168,10 +148,6 @@ SRC_URI += "\
     gomod://github.com/go-co-op/gocron;version=v1.37.0;sha256sum=91d980fb95d7706b19e267480d5497e0d0db9f49cb5562154efa63b2adea282f \
     gomod://github.com/go-enry/go-enry/v2;version=v2.9.5;sha256sum=1f0af6382f6c415b0e6f092d3d220214713391da6954e6b115637f2569702ac1 \
     gomod://github.com/go-enry/go-oniguruma;version=v1.2.1;mod=1;sha256sum=e677ad2698fa693eaf117473e8df575e67e9660a359f03558f5e498ebbd8ec1d \
-    gomod://github.com/go-errors/errors;version=v1.0.1;mod=1;sha256sum=233edc9b9070864822b19969f8de98df164d8c533eb04cf8745479678d2f20c4 \
-    gomod://github.com/go-errors/errors;version=v1.0.2;mod=1;sha256sum=dcf383377d88a7e4632c2dbaf568c78475fbecd93a78e98857666c53590dc3d7 \
-    gomod://github.com/go-errors/errors;version=v1.1.1;mod=1;sha256sum=dcf383377d88a7e4632c2dbaf568c78475fbecd93a78e98857666c53590dc3d7 \
-    gomod://github.com/go-errors/errors;version=v1.4.2;sha256sum=a5c72ce072cb9532bb8652ed55508ba839e24cda1b49e1ad30187bca852272df \
     gomod://github.com/go-fed/httpsig;version=v1.1.0;sha256sum=b926be7874ba06cda71675b21199a2ebef67d1ca0b5cebd431af2aac94a93015 \
     gomod://github.com/go-gl/glfw;version=v0.0.0-20190409004039-e6da0acd62b1;mod=1;sha256sum=510b2d54bf2c8b48ef87c5d05576f8771224c7e7ee2a85a5a97ea01925603eb7 \
     gomod://github.com/go-gl/glfw/v3.3/glfw;version=v0.0.0-20191125211704-12ad95a8df72;mod=1;sha256sum=d5636e44afa30d498cbad7330102f0cec8de5db5c6a70376e69c6cfe3e1435ca \
@@ -192,7 +168,6 @@ SRC_URI += "\
     gomod://github.com/go-viper/mapstructure/v2;version=v2.5.0;sha256sum=326f8e00f648af4ae8e6e18c606325e4206a92d6ed42f486dc2f4da8e1897547 \
     gomod://github.com/go-webauthn/webauthn;version=v0.16.1;sha256sum=7f1a09ed0a84ad98a072cb0956356d10b0d68dd4bde34d36efff46686851c4bd \
     gomod://github.com/go-webauthn/x;version=v0.2.2;sha256sum=25e68525b68035b758a97e8f44eb128e9802b4a0d7dfa650c221e30837c816bd \
-    gomod://github.com/go-xmlfmt/xmlfmt;version=v0.0.0-20191208150333-d5b6f63a941b;sha256sum=8e51c9981e575666a664a45909be4b9f9261bde24076745fa7e0cf3aced91fff \
     gomod://github.com/gobwas/glob;version=v0.2.3;sha256sum=0cfe486cd63d45ed4cb5863ff1cbd14b15e4b9380dcbf80ff26991b4049f4fdf \
     gomod://github.com/gobwas/httphead;version=v0.1.0;mod=1;sha256sum=3d0248b03954819231ecd05dba139ad1b169bd654c3837b1c3d26bb0967928fa \
     gomod://github.com/gobwas/pool;version=v0.2.1;mod=1;sha256sum=cd3762f5b971bce0fae059e54445ccb6efc5a5a43ef65711ed407ead049c5633 \
@@ -201,9 +176,6 @@ SRC_URI += "\
     gomod://github.com/gogs/chardet;version=v0.0.0-20211120154057-b7413eaefb8f;sha256sum=a7eab5497e249a8a2a56b7b47237b6d865efe676d7d483c9011916102c72c609 \
     gomod://github.com/gogs/go-gogs-client;version=v0.0.0-20210131175652-1d7215cd8d85;sha256sum=8cf506e9f44f7197c015d388f92e87961ffc39bc3dc9a22c480bb7b38e317de5 \
     gomod://github.com/golang/freetype;version=v0.0.0-20170609003504-e2365dfdc4a0;sha256sum=cdcb9e6a14933dcbf167b44dcd5083fc6a2e52c4fae8fb79747c691efeb7d84e \
-    gomod://github.com/golang/geo;version=v0.0.0-20190916061304-5b978397cfec;mod=1;sha256sum=c5f7ea3fe9d963d8acaeef1fa12293d818fda8431f6e574e394ceeb4f09429eb \
-    gomod://github.com/golang/geo;version=v0.0.0-20200319012246-673a6f80352d;mod=1;sha256sum=c5f7ea3fe9d963d8acaeef1fa12293d818fda8431f6e574e394ceeb4f09429eb \
-    gomod://github.com/golang/geo;version=v0.0.0-20210211234256-740aa86cb551;sha256sum=1777c5aa5fa615b8d91edd8b27b8756620fb3bc5b1104ec0ffe1ce08f381af5c \
     gomod://github.com/golang/glog;version=v0.0.0-20160126235308-23def4e6c14b;mod=1;sha256sum=9c9bafc0f52905afaa7164858b3a01a0cc3dc07da23030177ce487f727438958 \
     gomod://github.com/golang/groupcache;version=v0.0.0-20190702054246-869f871628b6;mod=1;sha256sum=5117e2bb86f1cc7cc7489f9f2580fa17b2ef1e3a0a346bf64ed8063ca7b87663 \
     gomod://github.com/golang/groupcache;version=v0.0.0-20191227052852-215e87163ea7;mod=1;sha256sum=5117e2bb86f1cc7cc7489f9f2580fa17b2ef1e3a0a346bf64ed8063ca7b87663 \
@@ -270,8 +242,6 @@ SRC_URI += "\
     gomod://github.com/jackc/pgservicefile;version=v0.0.0-20240606120523-5a60cdf6a761;sha256sum=c9e31c91aebf96eb246bd410d1849cc7666d955a1e20ca2eba1c30b4eb89335f \
     gomod://github.com/jackc/pgx/v5;version=v5.9.2;sha256sum=0e8e8456630e580729cd1b06bf402cc6b98b57ec3a867df0e89e6ff27aa361c9 \
     gomod://github.com/jackc/puddle/v2;version=v2.2.2;sha256sum=f1f0789098a0bcb5ff3c7024f9ee387a6748446e1bc6713b13a63d763a9fb11e \
-    gomod://github.com/jessevdk/go-flags;version=v1.4.0;mod=1;sha256sum=9fff48f350dbc6bb066594e94496defa195e8b55206d261ca5b2f989f6782a2d \
-    gomod://github.com/jessevdk/go-flags;version=v1.5.0;mod=1;sha256sum=762141f26aae38af38618f7f50fb48672c39abae108f92b28bd3b002f2bf876f \
     gomod://github.com/jhillyerd/enmime/v2;version=v2.2.0;sha256sum=3557f242a558b181147fa54b777941ff1fe40fbe37ac13c89d29d992b1140131 \
     gomod://github.com/josharian/intern;version=v1.0.0;sha256sum=5679bfd11c14adccdb45bd1a0f9cf4b445b95caeed6fb507ba96ecced11c248d \
     gomod://github.com/json-iterator/go;version=v1.1.12;sha256sum=d001ea57081afd0e378467c8f4a9b6a51259996bb8bb763f78107eaf12f99501 \
@@ -413,7 +383,6 @@ SRC_URI += "\
     gomod://go.yaml.in/yaml/v3;version=v3.0.4;sha256sum=0317dae56eaa9e9954467c8768fd6a89ba2005f1534e2c26fce5163ad8d2ef31 \
     gomod://go.yaml.in/yaml/v4;version=v4.0.0-rc.3;sha256sum=d5ca6a029979bc52760f17ed1a9393637a46095b9e0e8f504f1dc5d70ece46ac \
     gomod://go4.org;version=v0.0.0-20230225012048-214862532bf5;sha256sum=7a77a701bc25accd81f52d61400d2a6aec6c3e98331f364f95a89febf2dc303e \
-    gomod://golang.org/toolchain;version=v0.0.1-go1.26.4.linux-amd64;sha256sum=0221cfe82f9c88c717677cb5c1f59f598d177cd7eac18c11f90ae29432d356f9 \
     gomod://golang.org/x/crypto;version=v0.0.0-20190308221718-c2843e01d9a2;mod=1;sha256sum=33ed070a5a66e0960685ac5386440e1b59899e74d8a38a1180685e72a2195ded \
     gomod://golang.org/x/crypto;version=v0.0.0-20190510104115-cbcb75029529;mod=1;sha256sum=3ab9f01f4610fe7b39bd85d68e8d97825351e7e282c39cda41457c2a276f3be3 \
     gomod://golang.org/x/crypto;version=v0.0.0-20190605123033-f99c8df09eb5;mod=1;sha256sum=3ab9f01f4610fe7b39bd85d68e8d97825351e7e282c39cda41457c2a276f3be3 \
@@ -436,7 +405,7 @@ SRC_URI += "\
     gomod://golang.org/x/exp;version=v0.0.0-20200207192155-f17229e696bd;mod=1;sha256sum=9bf9e7ced60a80327cd20b5c4e23521c16c0ff2b2816ed8449bc453423b3df0b \
     gomod://golang.org/x/image;version=v0.0.0-20190227222117-0694c2d4d067;mod=1;sha256sum=9b905a7a8c84ce9e164760c09071b95301e8d3d402ed962173f12f92b8ad62fc \
     gomod://golang.org/x/image;version=v0.0.0-20190802002840-cff245a6509b;mod=1;sha256sum=4fa94ad41d9c4b097044b0b7fc21ca03d78e070e9ec10a6c9c311f05d0d51d00 \
-    gomod://golang.org/x/image;version=v0.41.0;sha256sum=dfa6f0db97442ba5f22a385e8f226334f79373cd59d2e3b91f8cdaa1d122d2be \
+    gomod://golang.org/x/image;version=v0.43.0;sha256sum=2c8044d3d323ff2d14de22859198930b61e3e9ac7e726dcef1dc32ce62b54f43 \
     gomod://golang.org/x/lint;version=v0.0.0-20181026193005-c67002cb31c3;mod=1;sha256sum=169b05225c8e2729727e0679ae3911918dfe1c4b18bed5ee0fae29f9ed77b207 \
     gomod://golang.org/x/lint;version=v0.0.0-20190227174305-5b3e6a55c961;mod=1;sha256sum=8e86b5869db58a7659e485b07dbce3beb1170a153631579e50f4cbf544bb1342 \
     gomod://golang.org/x/lint;version=v0.0.0-20190301231843-5614ed5bae6f;mod=1;sha256sum=169b05225c8e2729727e0679ae3911918dfe1c4b18bed5ee0fae29f9ed77b207 \
@@ -456,7 +425,7 @@ SRC_URI += "\
     gomod://golang.org/x/mod;version=v0.17.0;mod=1;sha256sum=5c4ac0310a25330757039ccf3a98e75fefdbcb7d444ddd049230003a44945bde \
     gomod://golang.org/x/mod;version=v0.2.0;mod=1;sha256sum=b288f088fd851885a6d348339e2f588e58a94e6c76e5e634ae1d67c2749eb413 \
     gomod://golang.org/x/mod;version=v0.3.0;mod=1;sha256sum=b288f088fd851885a6d348339e2f588e58a94e6c76e5e634ae1d67c2749eb413 \
-    gomod://golang.org/x/mod;version=v0.35.0;sha256sum=6a64c84837167aa92a5dd55aa318351b8c45623b2fb80804cce704e72a9621c8 \
+    gomod://golang.org/x/mod;version=v0.36.0;sha256sum=5410180c3dd4cd6e3ad08e7f47586fd93de65ca9c0a8891a8f964d321f74b60b \
     gomod://golang.org/x/mod;version=v0.6.0-dev.0.20220419223038-86c51ed26bb4;mod=1;sha256sum=42d19023ff8f2eae700bc5495f371ecd998a22d19ba985d0af5f69900b254083 \
     gomod://golang.org/x/mod;version=v0.8.0;mod=1;sha256sum=624567459c6e9947ac4abde0b7034ee61dcbb6a9373f5970094c0bb3e8121964 \
     gomod://golang.org/x/net;version=v0.0.0-20180724234803-3673e40ba225;mod=1;sha256sum=3e08f487ddda1851b891df5b1d04bb1a01b84d6d702aa82d9efbccde0aa7df81 \
@@ -473,15 +442,10 @@ SRC_URI += "\
     gomod://golang.org/x/net;version=v0.0.0-20190724013045-ca1201d0de80;mod=1;sha256sum=e6efdaf78a29503f080cf6d2615e289cfb1d9e3ab7d570f53668eca2b4ab41da \
     gomod://golang.org/x/net;version=v0.0.0-20191209160850-c0dbc17a3553;mod=1;sha256sum=e6efdaf78a29503f080cf6d2615e289cfb1d9e3ab7d570f53668eca2b4ab41da \
     gomod://golang.org/x/net;version=v0.0.0-20200202094626-16171245cfb2;mod=1;sha256sum=e6efdaf78a29503f080cf6d2615e289cfb1d9e3ab7d570f53668eca2b4ab41da \
-    gomod://golang.org/x/net;version=v0.0.0-20200320220750-118fecf932d8;mod=1;sha256sum=e6efdaf78a29503f080cf6d2615e289cfb1d9e3ab7d570f53668eca2b4ab41da \
-    gomod://golang.org/x/net;version=v0.0.0-20200501053045-e0ff5e5a1de5;mod=1;sha256sum=8b201486a1108f485943bf9bb67c78cde9aff4dcba53323bd3e28f2885041e09 \
-    gomod://golang.org/x/net;version=v0.0.0-20200513185701-a91f0712d120;mod=1;sha256sum=8b201486a1108f485943bf9bb67c78cde9aff4dcba53323bd3e28f2885041e09 \
     gomod://golang.org/x/net;version=v0.0.0-20200520004742-59133d7f0dd7;mod=1;sha256sum=8b201486a1108f485943bf9bb67c78cde9aff4dcba53323bd3e28f2885041e09 \
-    gomod://golang.org/x/net;version=v0.0.0-20200520182314-0ba52f642ac2;mod=1;sha256sum=8b201486a1108f485943bf9bb67c78cde9aff4dcba53323bd3e28f2885041e09 \
     gomod://golang.org/x/net;version=v0.0.0-20201021035429-f5854403a974;mod=1;sha256sum=66fc44a0644a506da780f7a22a5d73dd025d44a6e58740b62d27f74d7c3a4948 \
     gomod://golang.org/x/net;version=v0.0.0-20210226172049-e18ecbb05110;mod=1;sha256sum=fef5896d103a0bce5055fdb5e96e830944334792437865347718edceb633348a \
     gomod://golang.org/x/net;version=v0.0.0-20220722155237-a158d28d115b;mod=1;sha256sum=b315c52647d2da2f76e5cdb9d367e1d6727784236a9bffb612192b19b10a128d \
-    gomod://golang.org/x/net;version=v0.0.0-20221002022538-bcab6841153b;mod=1;sha256sum=45c86549c6da888d06cb9076bbafeec99f4fb56c259cb6e294ed3e80433dbca0 \
     gomod://golang.org/x/net;version=v0.10.0;mod=1;sha256sum=d3b7e236ff09e6322be489170216e018d3221862f1a053dcb63e53eab8533c17 \
     gomod://golang.org/x/net;version=v0.15.0;mod=1;sha256sum=3d10646d6f08d8e8a856d6f22f2cd706c3e2be0112eb777263cfd1392c76e4b4 \
     gomod://golang.org/x/net;version=v0.21.0;mod=1;sha256sum=0eef3e9fe7f668be5b4d24c8f1251c6c502d1168953c8081ac9dc3f399c64f06 \
@@ -506,7 +470,7 @@ SRC_URI += "\
     gomod://golang.org/x/sync;version=v0.0.0-20220722155255-886fb9371eb4;mod=1;sha256sum=421f6139686d5891f3dc5a563d0995780d3279f65cad4d225cea52686794161c \
     gomod://golang.org/x/sync;version=v0.1.0;mod=1;sha256sum=421f6139686d5891f3dc5a563d0995780d3279f65cad4d225cea52686794161c \
     gomod://golang.org/x/sync;version=v0.10.0;mod=1;sha256sum=700e5db00dd26aa19a17dce5fc552436d60f68c5606c85b821f24c3d6072a151 \
-    gomod://golang.org/x/sync;version=v0.20.0;sha256sum=7179d4d68800f6fdcadb9d4bbf11cbb5df9b40360c89305c203fe20723cbd375 \
+    gomod://golang.org/x/sync;version=v0.21.0;sha256sum=ee65459023de7f24836f6e2123144b5329bd0a4d05a87c3c448509378e2e6be7 \
     gomod://golang.org/x/sync;version=v0.3.0;mod=1;sha256sum=ed0ff0c5081a754cfcbe768cbcf60c63975b35d76e7d7b99c5ac9bfa6d982851 \
     gomod://golang.org/x/sync;version=v0.6.0;mod=1;sha256sum=700e5db00dd26aa19a17dce5fc552436d60f68c5606c85b821f24c3d6072a151 \
     gomod://golang.org/x/sync;version=v0.7.0;mod=1;sha256sum=700e5db00dd26aa19a17dce5fc552436d60f68c5606c85b821f24c3d6072a151 \
@@ -530,13 +494,10 @@ SRC_URI += "\
     gomod://golang.org/x/sys;version=v0.0.0-20200930185726-fdedc70b468f;mod=1;sha256sum=181979e8bd57d2d9e064182da86c9a6111aa69755e888f08431ece4742aec343 \
     gomod://golang.org/x/sys;version=v0.0.0-20201119102817-f84b799fce68;mod=1;sha256sum=181979e8bd57d2d9e064182da86c9a6111aa69755e888f08431ece4742aec343 \
     gomod://golang.org/x/sys;version=v0.0.0-20210112080510-489259a85091;mod=1;sha256sum=181979e8bd57d2d9e064182da86c9a6111aa69755e888f08431ece4742aec343 \
-    gomod://golang.org/x/sys;version=v0.0.0-20210320140829-1e4c9ba3b0c4;mod=1;sha256sum=181979e8bd57d2d9e064182da86c9a6111aa69755e888f08431ece4742aec343 \
     gomod://golang.org/x/sys;version=v0.0.0-20210615035016-665e8c7367d1;mod=1;sha256sum=f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024 \
     gomod://golang.org/x/sys;version=v0.0.0-20220310020820-b874c991c1a5;mod=1;sha256sum=f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024 \
     gomod://golang.org/x/sys;version=v0.0.0-20220520151302-bc2c85ada10a;mod=1;sha256sum=f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024 \
     gomod://golang.org/x/sys;version=v0.0.0-20220722155257-8c9f86f7a55f;mod=1;sha256sum=f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024 \
-    gomod://golang.org/x/sys;version=v0.0.0-20220728004956-3c1f35247d10;mod=1;sha256sum=f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024 \
-    gomod://golang.org/x/sys;version=v0.0.0-20220928140112-f11e5e49a4ec;mod=1;sha256sum=f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024 \
     gomod://golang.org/x/sys;version=v0.12.0;mod=1;sha256sum=f033333096fe198f3151deed93f2deba74e50bbfe7739134045bc3b7ce4a5024 \
     gomod://golang.org/x/sys;version=v0.17.0;mod=1;sha256sum=d227b325f621f4ebe28d39ba773ea99b870f393b7c09c34592c365b16dd560de \
     gomod://golang.org/x/sys;version=v0.20.0;mod=1;sha256sum=d227b325f621f4ebe28d39ba773ea99b870f393b7c09c34592c365b16dd560de \
@@ -565,7 +526,7 @@ SRC_URI += "\
     gomod://golang.org/x/text;version=v0.3.3;mod=1;sha256sum=fbb7a88ed140515e790eca7a10ffd319c9786b11c6a6c7e59f80f7fb37bb4542 \
     gomod://golang.org/x/text;version=v0.3.6;mod=1;sha256sum=fbb7a88ed140515e790eca7a10ffd319c9786b11c6a6c7e59f80f7fb37bb4542 \
     gomod://golang.org/x/text;version=v0.3.7;mod=1;sha256sum=c45d669089427bc4635d07b185f9b9680332d1c48c75b3c49cb715b81a04a5b0 \
-    gomod://golang.org/x/text;version=v0.37.0;sha256sum=b8d475c17835ab602b91f1147684ceb5dbf4060e72e5dfb2e0e33efc9312a982 \
+    gomod://golang.org/x/text;version=v0.38.0;sha256sum=be98266212ac63cdc78631ae0ff8f783e0f5e47d9b6094c11ffebe43fd0424b3 \
     gomod://golang.org/x/text;version=v0.7.0;mod=1;sha256sum=15929e76fce04aea4c92a354426bb43370684645a4ee03f2e75d0c2eb1466304 \
     gomod://golang.org/x/text;version=v0.9.0;mod=1;sha256sum=436f592e77b593b02fbea374e23ad3369c8623ff0d29c91de7de1e6672db9a41 \
     gomod://golang.org/x/time;version=v0.0.0-20181108054448-85acf8d2951c;mod=1;sha256sum=38e2bcf9a8f563a15c2fba57e4c22a5963a38a95766521ad2b6f3c9cf8718fcc \
@@ -599,7 +560,7 @@ SRC_URI += "\
     gomod://golang.org/x/tools;version=v0.1.12;mod=1;sha256sum=2a8b9365898f0822face65ba089a1353e68a65d342f300ca317cceccde6421f3 \
     gomod://golang.org/x/tools;version=v0.13.0;mod=1;sha256sum=142b3416b00e8213b409e279a434b97a6ce09531c914c1b4717878157d579a3f \
     gomod://golang.org/x/tools;version=v0.21.1-0.20240508182429-e35e4ccd0d2d;mod=1;sha256sum=4525dad4f5723d1e409f6a398c1ae7fd5e2c637d43a5caeb49844077b91c9eeb \
-    gomod://golang.org/x/tools;version=v0.44.0;mod=1;sha256sum=4bc7376e5cff94258ff855efcca582622fce0e0a8ca3cd56c3276e3bc89ef028 \
+    gomod://golang.org/x/tools;version=v0.45.0;mod=1;sha256sum=0bad1ee9a80135d3f96193318ee5d37be549d429eb6cafd0a6feeee15622263f \
     gomod://golang.org/x/tools;version=v0.6.0;mod=1;sha256sum=830ed78dcd3e9927c412e2641230308447749d513d31024d276e2443b2016609 \
     gomod://golang.org/x/xerrors;version=v0.0.0-20190717185122-a985d3407aa7;mod=1;sha256sum=aa5e3ec9bb7b9f681609efac019d9de1a7ba7719248ff1eaa27e78882db3d7f5 \
     gomod://golang.org/x/xerrors;version=v0.0.0-20191011141410-1b5146add898;mod=1;sha256sum=aa5e3ec9bb7b9f681609efac019d9de1a7ba7719248ff1eaa27e78882db3d7f5 \
@@ -658,7 +619,6 @@ SRC_URI += "\
     gomod://gopkg.in/yaml.v2;version=v2.2.1;mod=1;sha256sum=88d979d2f093d2397f756bc86efa2ca03f73a60d668ceb391b3510029f3f7cfc \
     gomod://gopkg.in/yaml.v2;version=v2.2.2;mod=1;sha256sum=88d979d2f093d2397f756bc86efa2ca03f73a60d668ceb391b3510029f3f7cfc \
     gomod://gopkg.in/yaml.v2;version=v2.2.4;mod=1;sha256sum=88d979d2f093d2397f756bc86efa2ca03f73a60d668ceb391b3510029f3f7cfc \
-    gomod://gopkg.in/yaml.v2;version=v2.2.7;mod=1;sha256sum=88d979d2f093d2397f756bc86efa2ca03f73a60d668ceb391b3510029f3f7cfc \
     gomod://gopkg.in/yaml.v2;version=v2.2.8;mod=1;sha256sum=88d979d2f093d2397f756bc86efa2ca03f73a60d668ceb391b3510029f3f7cfc \
     gomod://gopkg.in/yaml.v2;version=v2.3.0;mod=1;sha256sum=88d979d2f093d2397f756bc86efa2ca03f73a60d668ceb391b3510029f3f7cfc \
     gomod://gopkg.in/yaml.v2;version=v2.4.0;sha256sum=ede49e27c4cca6cdd2ec719aed8ea4d363710cceb3d411e7a786fbdec0d391fd \
