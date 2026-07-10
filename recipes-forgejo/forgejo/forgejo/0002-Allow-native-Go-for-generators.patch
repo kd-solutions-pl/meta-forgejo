@@ -1,0 +1,42 @@
+From f046ae9da8dc904145a19a13723df420aaae4936 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Krzysztof=20Drobi=C5=84ski?= <krzysztof@kd-solutions.pl>
+Date: Fri, 10 Jul 2026 18:00:00 +0200
+Subject: [PATCH 2/2] [PATCH] Makefile: allow native Go for generators
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+During a cross build, $(GO) is the target Go wrapper.  Programs compiled and
+executed by "go generate" must instead be built for the build host, otherwise
+the generation step fails with an exec format error.
+
+Upstream-Status: Inappropriate [cross-compilation specific]
+Signed-off-by: Krzysztof Drobiński <krzysztof@kd-solutions.pl>
+---
+ Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index de42b3c42a..a0c08016b5 100644
+--- a/src/forgejo.org/Makefile
++++ b/src/forgejo.org/Makefile
+@@ -59,6 +59,7 @@ ifeq ($(HAS_GO), yes)
+ endif
+ 
+ GOFLAGS ?= -v
++GO_GENERATE ?= $(GO)
+ EXECUTABLE ?= gitea
+ 
+ ifeq ($(shell sed --version 2>/dev/null | grep -q GNU && echo gnu),gnu)
+@@ -858,7 +859,7 @@ generate-backend: $(TAGS_PREREQ) generate-go
+ .PHONY: generate-go
+ generate-go: $(TAGS_PREREQ)
+ 	@echo "Running go generate..."
+-	@CC= GOOS= GOARCH= CGO_ENABLED=0 $(GO) generate -tags '$(TAGS)' ./...
++	@CC= GOOS= GOARCH= CGO_ENABLED=0 $(GO_GENERATE) generate -tags '$(TAGS)' ./...
+ 
+ .PHONY: merge-locales
+ merge-locales:
+-- 
+2.53.0
+

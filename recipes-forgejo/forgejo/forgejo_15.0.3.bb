@@ -14,6 +14,7 @@ SRC_URI = " \
     file://forgejo-postgresql-setup.service \
     file://forgejo-postgresql-setup \
     file://0001-Fix-passing-GOFLAGS-from-Yocto-environment.patch \
+    file://0002-Allow-native-Go-for-generators.patch \
     file://npm-shrinkwrap.json \
 "
 SRCREV = "f6d4219f10a29dd6d59dfb5d8e44b7ff7aed4274"
@@ -44,7 +45,7 @@ do_compile() {
     export EXTRA_GOFLAGS="${GO_PARALLEL_BUILD} -trimpath -buildmode=pie"
     export LDFLAGS=""
     export GOTOOLCHAIN="local"
-    oe_runmake TAGS="bindata timetzdata" build
+    oe_runmake GO_GENERATE="go" TAGS="bindata timetzdata" build
 }
 
 do_install() {
