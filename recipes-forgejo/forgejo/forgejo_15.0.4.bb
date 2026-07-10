@@ -17,7 +17,7 @@ SRC_URI = " \
     file://0002-Allow-native-Go-for-generators.patch \
     file://npm-shrinkwrap.json \
 "
-SRCREV = "f6d4219f10a29dd6d59dfb5d8e44b7ff7aed4274"
+SRCREV = "46f47fd28450213b1cebb10db5c0f10ddae54ee1"
 
 GO_IMPORT = "forgejo.org"
 
