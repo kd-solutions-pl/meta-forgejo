@@ -1,7 +1,7 @@
 DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & ISC & BSD-2-Clause & BSD-3-Clause & Artistic-2.0 & Apache-2.0 & BlueOak-1.0.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=9f816753e8bdfe4576cb87159a0cd60c"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=76c62fa4c329393e905512b36f8378b7"
 FILESEXTRAPATHS:prepend := "${THISDIR}/nodejs-24:"
 
 CVE_PRODUCT = "nodejs node.js"
@@ -26,16 +26,16 @@ SRC_URI = "https://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0002-v8-don-t-override-ARM-CFLAGS.patch \
            file://0003-system-c-ares.patch \
            file://0004-liftoff-Correct-function-signatures.patch \
-           file://0005-libatomic.patch \
            file://0006-deps-disable-io_uring-support-in-libuv.patch \
            file://0007-positional-args.patch \
            file://0008-custom-env.patch \
+           file://0010-v8-fix-Wtemplate-body-error-with-GCC-15-on-ia32.patch \
            file://run-ptest \
            "
 SRC_URI:append:class-target = " \
            file://0009-Using-native-binaries.patch \
            "
-SRC_URI[sha256sum] = "2ff84a6de70b6165290111b0fc656ded1ad207a799816fe720cc7c31232df30f"
+SRC_URI[sha256sum] = "e94afde24db08e0c564ee7110a2d5aab51ee0059382c9fd8233c54eec47b28f9"
 
 S = "${UNPACKDIR}/node-v${PV}"
 
@@ -150,9 +150,12 @@ do_configure () {
                ${PACKAGECONFIG_CONFARGS}
 }
 
+do_compile:prepend:class-target() {
+    install -D ${B}/v8-qemu-wrapper.sh ${B}/out/Release/v8-qemu-wrapper.sh
+}
+
 do_compile () {
     install -D ${RECIPE_SYSROOT_NATIVE}/etc/ssl/openssl.cnf ${B}/deps/openssl/nodejs-openssl.cnf
-    install -D ${B}/v8-qemu-wrapper.sh ${B}/out/Release/v8-qemu-wrapper.sh
     oe_runmake BUILDTYPE=Release
 }
 
@@ -199,6 +202,13 @@ python set_gyp_variables () {
 }
 
 python __anonymous () {
+    # do_create_v8_qemu_wrapper is not needed for the native build, so make sure it
+    # gets deleted otherwise target info ends up in its signature making the native
+    # build target specific.
+    if bb.data.inherits_class('native', d):
+        bb.build.deltask('do_create_v8_qemu_wrapper', d)
+        return
+
     # 32 bit target and 64 bit host (x86-64 or aarch64) have different bit width
     if d.getVar("SITEINFO_BITS") == "32" and "64" in d.getVar("BUILD_ARCH"):
         d.setVar("HOST_AND_TARGET_SAME_WIDTH", "0")
