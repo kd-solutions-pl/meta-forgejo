@@ -1,8 +1,7 @@
 DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & ISC & BSD-2-Clause & BSD-3-Clause & Artistic-2.0 & Apache-2.0 & BlueOak-1.0.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=76c62fa4c329393e905512b36f8378b7"
-FILESEXTRAPATHS:prepend := "${THISDIR}/nodejs-24:"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b195f4ea4368177a2fd84b879f09cba8"
 
 CVE_PRODUCT = "nodejs node.js"
 
@@ -23,19 +22,24 @@ COMPATIBLE_HOST:powerpc64le = "null"
 
 SRC_URI = "https://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz \
            file://0001-Do-not-use-glob-in-deps.patch \
-           file://0002-v8-don-t-override-ARM-CFLAGS.patch \
-           file://0003-system-c-ares.patch \
-           file://0004-liftoff-Correct-function-signatures.patch \
-           file://0006-deps-disable-io_uring-support-in-libuv.patch \
-           file://0007-positional-args.patch \
-           file://0008-custom-env.patch \
-           file://0010-v8-fix-Wtemplate-body-error-with-GCC-15-on-ia32.patch \
+           file://0001-Disable-running-gyp-files-for-bundled-deps.patch \
+           file://0004-v8-don-t-override-ARM-CFLAGS.patch \
+           file://system-c-ares.patch \
+           file://0001-liftoff-Correct-function-signatures.patch \
+           file://libatomic.patch \
+           file://0001-deps-disable-io_uring-support-in-libuv.patch \
+           file://0001-positional-args.patch \
+           file://0001-custom-env.patch \
+           file://0001-build-remove-redundant-mXX-flags-for-V8.patch \
            file://run-ptest \
            "
 SRC_URI:append:class-target = " \
-           file://0009-Using-native-binaries.patch \
+           file://0001-Using-native-binaries.patch \
            "
-SRC_URI[sha256sum] = "e94afde24db08e0c564ee7110a2d5aab51ee0059382c9fd8233c54eec47b28f9"
+SRC_URI:append:toolchain-clang:powerpc64le = " \
+           file://0001-ppc64-Do-not-use-mminimal-toc-with-clang.patch \
+           "
+SRC_URI[sha256sum] = "bd97093e1a1e9243338950c174a693a64d4e0926a9c6ce259962bc58d5e96909"
 
 S = "${UNPACKDIR}/node-v${PV}"
 
@@ -150,12 +154,9 @@ do_configure () {
                ${PACKAGECONFIG_CONFARGS}
 }
 
-do_compile:prepend:class-target() {
-    install -D ${B}/v8-qemu-wrapper.sh ${B}/out/Release/v8-qemu-wrapper.sh
-}
-
 do_compile () {
     install -D ${RECIPE_SYSROOT_NATIVE}/etc/ssl/openssl.cnf ${B}/deps/openssl/nodejs-openssl.cnf
+    install -D ${B}/v8-qemu-wrapper.sh ${B}/out/Release/v8-qemu-wrapper.sh
     oe_runmake BUILDTYPE=Release
 }
 
@@ -202,13 +203,6 @@ python set_gyp_variables () {
 }
 
 python __anonymous () {
-    # do_create_v8_qemu_wrapper is not needed for the native build, so make sure it
-    # gets deleted otherwise target info ends up in its signature making the native
-    # build target specific.
-    if bb.data.inherits_class('native', d):
-        bb.build.deltask('do_create_v8_qemu_wrapper', d)
-        return
-
     # 32 bit target and 64 bit host (x86-64 or aarch64) have different bit width
     if d.getVar("SITEINFO_BITS") == "32" and "64" in d.getVar("BUILD_ARCH"):
         d.setVar("HOST_AND_TARGET_SAME_WIDTH", "0")
@@ -217,3 +211,11 @@ python __anonymous () {
 }
 
 BBCLASSEXTEND = "native"
+
+CVE_STATUS[CVE-2026-21710] = "fixed-version: fixed since v22.22.2"
+CVE_STATUS[CVE-2026-21712] = "cpe-incorrect: only v24 and v25 are affected"
+CVE_STATUS[CVE-2026-21713] = "fixed-version: fixed since v22.22.2"
+CVE_STATUS[CVE-2026-21714] = "fixed-version: fixed since v22.22.2"
+CVE_STATUS[CVE-2026-21715] = "fixed-version: fixed since v22.22.2"
+CVE_STATUS[CVE-2026-21716] = "fixed-version: fixed since v22.22.2"
+CVE_STATUS[CVE-2026-21717] = "fixed-version: fixed since v22.22.2"
